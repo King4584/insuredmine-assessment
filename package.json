@@ -7,6 +7,7 @@
     "csv-parser": "^3.2.1",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "mongod": "^2.0.0",
     "mongoose": "^9.9.3",
     "multer": "^2.2.0",
     "node-schedule": "^2.1.1",

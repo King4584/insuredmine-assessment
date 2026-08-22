@@ -27,6 +27,12 @@
 .classpath
 .settings/
 
+# Ignore everything in the uploads folder...
+uploads/*
+
+# ...EXCEPT the data-sheet.csv file
+!uploads/data-sheet.csv
+
 # Operating System Files
 .DS_Store
 .DS_Store?

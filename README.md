@@ -53,6 +53,23 @@ nodemon server.js
 
 You should see a console message confirming the server is running on port 5000 and MongoDB is connected successfully.
 
+## 🧪 Automated Testing
+
+This project includes a comprehensive automated test suite built with **Jest** and **Supertest**. The tests are designed to ensure data integrity, validate API routing, and verify background utility functions without affecting the production database.
+
+### Running the Tests
+To run the complete test suite, ensure your dependencies are installed, and run the following command in your terminal:
+```bash
+npm test
+```
+
+### Test Coverage Includes:
+
+* **API Route Integration (`tests/api.test.js`):** Mocks the controllers to test Express routing, HTTP status codes (200, 400, 500), and expected JSON response structures for the upload, search, aggregate, and schedule endpoints.
+* **Mongoose Models (`models/tests/models.test.js`):** Validates the MongoDB schemas to ensure required fields are enforced and ObjectId relations (like `userId` and `companyId`) are correctly formatted.
+* **System Utilities (`utils/tests/cpuMonitor.test.js`):** Utilizes Jest's fake timers to simulate CPU load spikes and verifies that the `process.exit(1)` restart trigger fires exactly at 70% utilization.
+* **Server Initialization (`tests/server.test.js`):** Verifies that the Express app mounts correctly, the database connects on startup, and the background CPU monitor initializes without hanging the port.
+
 ## 📡 API Endpoints & Testing Guide
 
 A Postman collection is included in this repository. You can import it directly into Postman, or use the manual configurations below to test the endpoints.

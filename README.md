@@ -25,7 +25,7 @@ Before running this project, ensure you have the following installed on your mac
 
 ### 1. Clone the repository
 ```bash
-git clone <your-github-repo-url>
+git clone https://github.com/King4584/insuredmine-assessment.git
 cd insuredmine-assessment
 ```
 
@@ -46,14 +46,9 @@ MONGO_URI=mongodb://127.0.0.1:27017/insuredmine_db
 
 ### 4. Start the Application
 
-For development mode (with auto-restart on file changes):
+For start the backend:
 ```bash
-npm run dev
-```
-
-For production mode:
-```bash
-npm start
+nodemon server.js
 ```
 
 You should see a console message confirming the server is running on port 5000 and MongoDB is connected successfully.

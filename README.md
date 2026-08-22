@@ -46,7 +46,7 @@ MONGO_URI=mongodb://127.0.0.1:27017/insuredmine_db
 
 ### 4. Start the Application
 
-For start the backend:
+To start the backend:
 ```bash
 nodemon server.js
 ```

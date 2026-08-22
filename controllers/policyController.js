@@ -1,8 +1,9 @@
 const path = require('path');
 const User = require('../models/User');
 const Policy = require('../models/Policy');
+const Carrier = require('../models/Carrier');
+const LOB = require('../models/LOB');
 const { Worker } = require('worker_threads');
-
 
 exports.uploadCSV = async (req, res) => {
     if (!req.file) {
@@ -31,8 +32,16 @@ exports.uploadCSV = async (req, res) => {
 
 exports.searchPolicies = async (req, res) => {
     try {
-        const users = await User.find({ firstName: { $regex: req.query.firstName, $options: 'i' } });
-        const userIds = users.map(user => user._id);
+        const { username } = req.query;
+
+        if(!username) {
+            return res.status(400).json({ success: false, error: 'username query parameter is required' });
+        }
+
+        const users = await User.find({ 
+      firstName: { $regex: username, $options: 'i' } 
+    });
+    const userIds = users.map(user => user._id);
         const policies = await Policy.find({ userId: { $in: userIds } }).populate('companyId').populate('policyCategoryId'); // .populate('userId')
         res.status(200).json({ success: true, data: policies });
     }

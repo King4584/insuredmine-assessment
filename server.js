@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
 const apiRoutes = require('./routes/api');
+const initCPUMonitor = require('./utils/cpuMonitor');
 
 const app = express();
 
@@ -10,6 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Connect Database
 connectDB();
+initCPUMonitor();
 
 app.use('/api', apiRoutes);
 

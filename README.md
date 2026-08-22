@@ -133,7 +133,7 @@ Schedules a message to be automatically inserted into the `scheduledmessages` Mo
 
 ## 🗂 Folder Structure
 
-```plaintext
+```text
 insuredmine-assessment/
 │
 ├── config/
@@ -142,6 +142,8 @@ insuredmine-assessment/
 │   ├── policyController.js   # Logic for upload, search, and aggregate APIs
 │   └── taskController.js     # Logic for the scheduled message API
 ├── models/                   # Mongoose Schemas
+│   ├── tests/
+│   │   └── models.test.js    # Unit tests for Mongoose schemas
 │   ├── Agent.js
 │   ├── Carrier.js
 │   ├── LOB.js
@@ -150,14 +152,21 @@ insuredmine-assessment/
 │   ├── User.js
 │   └── UserAccount.js
 ├── routes/
+│   ├── tests/
+│   │   └── api.test.js       # Integration tests for Express API endpoints
 │   └── api.js                # Express routing definitions
+├── tests/
+│   └── server.test.js        # Server initialization and mock connection tests
 ├── utils/
+│   ├── tests/
+│   │   └── cpuMonitor.test.js# Unit tests for the CPU monitoring utility
 │   └── cpuMonitor.js         # Background CPU tracker (Task 2.1)
 ├── workers/
 │   └── uploadWorker.js       # Background thread for CSV processing
 ├── uploads/                  # Temporary storage for incoming CSV files
 ├── .env                      # Environment variables (not tracked in Git)
-├── package.json              
+├── .gitignore                # Git ignore rules (ignores node_modules and uploads)
+├── package.json              # Project dependencies and test scripts
 ├── server.js                 # Application entry point
-└── README.md
+└── README.md                 # Project documentation
 ```
